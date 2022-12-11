@@ -1,5 +1,7 @@
 package br.com.alura.testes;
 
+import br.com.alura.loja.dao.ProdutoDao;
+import br.com.alura.loja.util.JPAUtil;
 import br.com.alura.modelo.Produto;
 
 import javax.persistence.EntityManager;
@@ -15,11 +17,12 @@ public class CadastroDeProduto {
         celular.setDescricao("Iphone XR");
         celular.setPreco(new BigDecimal("3000"));
 
-        EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory("loja");
-        EntityManager manager = managerFactory.createEntityManager();
+        EntityManager manager = JPAUtil.getEntityManager();
+
+        ProdutoDao produtoDao = new ProdutoDao(manager);
 
         manager.getTransaction().begin();
-        manager.persist(celular);
+        produtoDao.cadastrar(celular);
         manager.getTransaction().commit();
         manager.close();
     }
