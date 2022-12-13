@@ -33,4 +33,10 @@ public class CategoriaDao {
     public List<Categoria> buscarTodos() {
         return this.manager.createQuery("SELECT c FROM Categoria c").getResultList();
     }
+
+    public List<Categoria> buscarPorNome(String nome) {
+        return this.manager.createQuery("SELECT c FROM Categoria c WHERE c.nome = ?1")
+                .setParameter(1, nome)
+                .getResultList();
+    }
 }
