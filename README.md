@@ -1,5 +1,5 @@
 # Hibernate (Alura)
-aplicação Java com Maven desenvolvida para fins de estudo do Hibernate
+Aplicação Java com Maven desenvolvida para fins de estudo do Hibernate
 
 ## Tecnologias utilizadas
 
