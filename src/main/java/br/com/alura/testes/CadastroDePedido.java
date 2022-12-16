@@ -31,6 +31,9 @@ public class CadastroDePedido {
         pedidoDao.cadastrar(pedido);
         manager.getTransaction().commit();
 
+        BigDecimal valorTotal = pedido.getValorTotal();
+        System.out.println("Valor total do pedido: " + valorTotal);
+
     }
 
     private static void popularBD() {
