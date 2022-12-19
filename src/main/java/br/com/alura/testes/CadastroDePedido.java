@@ -5,10 +5,12 @@ import br.com.alura.loja.dao.ClienteDao;
 import br.com.alura.loja.dao.PedidoDao;
 import br.com.alura.loja.dao.ProdutoDao;
 import br.com.alura.loja.util.JPAUtil;
+import br.com.alura.loja.vo.RelatorioDeVendasVo;
 import br.com.alura.modelo.*;
 
 import javax.persistence.EntityManager;
 import java.math.BigDecimal;
+import java.util.List;
 
 public class CadastroDePedido {
     public static void main(String[] args) {
@@ -34,6 +36,8 @@ public class CadastroDePedido {
         BigDecimal valorTotal = pedido.getValorTotal();
         System.out.println("Valor total do pedido: " + valorTotal);
 
+        List<RelatorioDeVendasVo> relatorioDeVendas = pedidoDao.relatorioDeVendas();
+        relatorioDeVendas.forEach(System.out::println);
     }
 
     private static void popularBD() {
