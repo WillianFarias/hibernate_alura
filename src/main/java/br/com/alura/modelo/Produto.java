@@ -6,6 +6,8 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "produtos")
+@Inheritance(strategy = InheritanceType.JOINED)
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Produto {
 
     @Id
@@ -15,7 +17,7 @@ public class Produto {
     private String nome;
     private String descricao;
     private BigDecimal preco;
-    private LocalDate dataCadastro = LocalDate.now();
+    private final LocalDate dataCadastro = LocalDate.now();
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Categoria categoria;
