@@ -48,7 +48,7 @@ public class ProdutoDao {
     }
 
     public List<Produto> buscarPorNomeDaCategoria(String nome) {
-        return this.manager.createQuery("SELECT p FROM Produto p WHERE p.categoria.nome = :nome")
+        return this.manager.createQuery("SELECT p FROM Produto p WHERE p.categoria.id.nome = :nome")
                 .setParameter("nome", nome)
                 .getResultList();
     }

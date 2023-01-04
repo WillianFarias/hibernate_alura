@@ -4,6 +4,7 @@ import br.com.alura.loja.dao.CategoriaDao;
 import br.com.alura.loja.dao.ProdutoDao;
 import br.com.alura.loja.util.JPAUtil;
 import br.com.alura.modelo.Categoria;
+import br.com.alura.modelo.CategoriaId;
 import br.com.alura.modelo.Produto;
 
 import javax.persistence.EntityManager;
@@ -44,6 +45,9 @@ public class CadastroDeProduto {
         produtoDao.cadastrar(xiaomi);
 
         manager.getTransaction().commit();
+
+        manager.find(Categoria.class, new CategoriaId("Celulares", "xpto"));
+
         manager.close();
     }
 }
